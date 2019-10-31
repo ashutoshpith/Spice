@@ -26,28 +26,31 @@
     <div class="container">
         @if (Model.Any())
         {
-            <table class="table table-striped border">
-                <thead>
-                <th>
-                    @Html.DisplayNameFor(s => s.Name)
-                </th>
-                <th></th>
-                <th></th>
-                </thead>
-                <tbody>
-                    @foreach (var cat in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(s => cat.Name)
-                            </td>
-                            <td>
-                                <partial name="_TableButtonPartial" model="@cat.Id"/>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+        <table class="table table-striped border">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(s => s.Name)
+                    </th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var cat in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(s => cat.Name)
+                        </td>
+                        <td>
+                            <partial name="_TableButtonPartial" model="@cat.Id" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
         }
         else
