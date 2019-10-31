@@ -7,3 +7,52 @@
 
 <h1>Index</h1>
 
+<br/>
+<br/>
+
+<div class="border backgroundWhite">
+    <div class="row">
+        <div class="col-6">
+            Category Available
+        </div>
+        <div class="col-6 text-right">
+         <partial name="_CreateButtonPartial"/> 
+         
+        </div>
+    </div>
+    <br/>
+    <br />
+
+    <div class="container">
+        @if (Model.Any())
+        {
+            <table class="table table-striped border">
+                <thead>
+                <th>
+                    @Html.DisplayNameFor(s => s.Name)
+                </th>
+                <th></th>
+                <th></th>
+                </thead>
+                <tbody>
+                    @foreach (var cat in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(s => cat.Name)
+                            </td>
+                            <td>
+                                Edit | Delete
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        }
+        else
+        {
+            <p>No Category Available!</p>
+        }
+    </div>
+</div>
