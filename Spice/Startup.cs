@@ -35,6 +35,17 @@ namespace Spice
             services.AddControllersWithViews();
             services.AddMvc();
             services.AddRazorPages().AddRazorRuntimeCompilation();
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = "1199848156866937";
+                facebookOptions.AppSecret = "cc87b4c2bcc096e33b05e1dc8a22a603";
+            });
+
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = "166440482005-76ji7l9m8vm4hkei1u4tph1fuah25a61.apps.googleusercontent.com";
+                googleOptions.ClientSecret = "8unHgSwVDXGA0erfG-Gw3sz3";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
