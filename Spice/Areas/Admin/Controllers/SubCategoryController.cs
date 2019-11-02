@@ -43,7 +43,7 @@ namespace Spice.Areas.Admin.Controllers
             SubCategoryAndCategoryViewModel model = new SubCategoryAndCategoryViewModel()
             {
                 CategoryList = await _db.Category.ToListAsync(),
-                SubCategory = new Models.SubCategory(),
+                SubCategory = new SubCategory(),
                 SubCategoryList = await _db.SubCategory.OrderBy(p => p.Name).Select(p => p.Name).Distinct().ToListAsync()
             };
 
@@ -71,14 +71,14 @@ namespace Spice.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            SubCategoryAndCategoryViewModel modelVM = new SubCategoryAndCategoryViewModel()
+            SubCategoryAndCategoryViewModel modelVm = new SubCategoryAndCategoryViewModel()
             {
                 CategoryList = await _db.Category.ToListAsync(),
                 SubCategory = model.SubCategory,
                 SubCategoryList = await _db.SubCategory.OrderBy(p => p.Name).Select(p => p.Name).ToListAsync(),
                 StatusMessage = StatusMessage
             };
-            return View(modelVM);
+            return View(modelVm);
         }
 
 
@@ -142,7 +142,7 @@ namespace Spice.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            SubCategoryAndCategoryViewModel modelVM = new SubCategoryAndCategoryViewModel()
+            SubCategoryAndCategoryViewModel modelVm = new SubCategoryAndCategoryViewModel()
             {
                 CategoryList = await _db.Category.ToListAsync(),
                 SubCategory = model.SubCategory,
@@ -150,7 +150,7 @@ namespace Spice.Areas.Admin.Controllers
                 StatusMessage = StatusMessage
             };
             //modelVM.SubCategory.Id = id;
-            return View(modelVM);
+            return View(modelVm);
         }
 
         //GET Details
