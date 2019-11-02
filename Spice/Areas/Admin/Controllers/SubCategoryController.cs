@@ -30,6 +30,13 @@ namespace Spice.Areas.Admin.Controllers
             return View(subCategories);
         }
 
+        [ActionName("SubCategoryJson")]
+        public async Task<IActionResult> SubCategoryJson() {
+            var subCategory = await _db.SubCategory.Include(s => s.Category).ToListAsync();
+            return Ok(subCategory);
+
+        }
+
         //GET - CREATE
         public async Task<IActionResult> Create()
         {
