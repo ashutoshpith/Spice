@@ -16,7 +16,7 @@
             Category Available
         </div>
         <div class="col-6 text-right">
-         <partial name="_CreateButtonPartial"/> 
+            <partial name="_CreateButtonPartial"/> 
          
         </div>
     </div>
@@ -26,8 +26,8 @@
     <div class="container">
         @if (Model.Any())
         {
-        <table class="table table-striped border">
-            <thead>
+            <table class="table table-striped border">
+                <thead>
                 <tr>
                     <th>
                         @Html.DisplayNameFor(s => s.Name)
@@ -35,9 +35,9 @@
                     <th></th>
                     <th></th>
                 </tr>
-            </thead>
+                </thead>
 
-            <tbody>
+                <tbody>
                 @foreach (var cat in Model)
                 {
                     <tr>
@@ -49,8 +49,8 @@
                         </td>
                     </tr>
                 }
-            </tbody>
-        </table>
+                </tbody>
+            </table>
 
         }
         else
@@ -59,3 +59,5 @@
         }
     </div>
 </div>
+
+@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
