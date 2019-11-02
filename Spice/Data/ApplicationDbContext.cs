@@ -18,6 +18,8 @@ namespace Spice.Data
         public DbSet<SubCategory> SubCategory { get; set; }
         public DbSet<Taxi> Taxi { get; set; }
 
+        public DbSet<MenuItem> MenuItem { get; set; }
+
 
     }
 }
