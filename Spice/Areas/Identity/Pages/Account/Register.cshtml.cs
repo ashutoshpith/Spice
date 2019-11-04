@@ -120,11 +120,35 @@ namespace Spice.Areas.Identity.Pages.Account
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.FrontDeskUser));
                     }
-                    await _userManager.AddToRoleAsync(user, SD.ManagerUser);
+                    
+                    if(role == SD.KitchenUser)
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.KitchenUser);
+                    }
+                    else
+                    {
+                        if(role == SD.FrontDeskUser)
+                        {
+                            await _userManager.AddToRoleAsync(user, SD.FrontDeskUser);
+                        }
+                        else
+                        {
+                            if(role == SD.ManagerUser)
+                            {
+                                await _userManager.AddToRoleAsync(user, SD.ManagerUser);
+                            }
+                            else
+                            {
+                                await _userManager.AddToRoleAsync(user, SD.CustomerEndUser);
+                                await _signInManager.SignInAsync(user, isPersistent: false);
+                                return LocalRedirect(returnUrl);
+                            }
+                        }
+                    }
+                    _logger.LogInformation("User created a new account with password.");
 
-                   // return RedirectToAction("Index", "User", new { area = "Admin" });
-                       _logger.LogInformation("User created a new account with password.");
-
+                    return RedirectToAction("Index", "User", new { area = "Admin" });
+         
                     //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     //var callbackUrl = Url.Page(
@@ -142,8 +166,8 @@ namespace Spice.Areas.Identity.Pages.Account
                     //}
                     //else
                     //{
-                        await _signInManager.SignInAsync(user, isPersistent: false);
-                        return LocalRedirect(returnUrl);
+                     //   await _signInManager.SignInAsync(user, isPersistent: false);
+                       // return LocalRedirect(returnUrl);
                     //}
                 }
                 foreach (var error in result.Errors)
