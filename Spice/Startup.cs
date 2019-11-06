@@ -39,11 +39,12 @@ namespace Spice
 
             services.AddSingleton<IEmailSender, EmailSender>();
 
+            //services.AddControllersWithViews();
+            //services.AddMvc();
+            //services.AddRazorPages().AddRazorRuntimeCompilation();
+
             services.AddControllersWithViews();
-            services.AddMvc();
-            services.AddRazorPages().AddRazorRuntimeCompilation();
-
-
+            services.AddRazorPages();
 
             services.AddAuthentication().AddFacebook(facebookOptions =>
             {
