@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.ML.Trainers.FastTree;
 using Spice.Models;
 
 namespace Spice.Data
@@ -21,6 +22,11 @@ namespace Spice.Data
         public DbSet<Coupon> Coupon { get; set; }
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<ShoppingCart> ShoppingCart { get; set; }
+        public DbSet<Earth> Earth { get; set; }
+
+
+
+
 
 
 
