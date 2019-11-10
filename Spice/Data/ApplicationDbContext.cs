@@ -23,6 +23,9 @@ namespace Spice.Data
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
         public DbSet<ShoppingCart> ShoppingCart { get; set; }
         public DbSet<Earth> Earth { get; set; }
+        public DbSet<OrderHeader> OrderHeader { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
+
 
 
 
