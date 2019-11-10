@@ -55,7 +55,7 @@
                         @if (HttpContextAccessor.HttpContext.Session.GetInt32(@SD.ssShoppingCartCount) != null)
                         {
                             <li style="color:white">
-                                <a asp-area="Customer" asp-controller="Cart" asp-action="Index" class="nav-link">
+                                <a asp-action="Index" asp-controller="Cart" class="nav-link">
                                     @{
                                         var count = HttpContextAccessor.HttpContext.Session.GetInt32(@SD.ssShoppingCartCount);
                                     }
@@ -66,7 +66,7 @@
                         else
                         {
                             <li style="color:white">
-                                <a href="#" class="nav-link">
+                                <a asp-action="Index" asp-controller="Cart" class="nav-link">
                                     <i class="fas fa-shopping-cart"></i> &nbsp; (0)
                                 </a>
                             </li>
